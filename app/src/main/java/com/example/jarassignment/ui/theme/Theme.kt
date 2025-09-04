@@ -10,11 +10,11 @@ private val DarkColorScheme = darkColorScheme(
     secondary = Color(0xFFFDF3D6),
     tertiary = Color(0xFF992D7E),
     background = Color.Black,
-    surface = Color.Black,
+    surface = TextDarkSurface200,
     onPrimary = Color.White,
     onSecondary = Color.Black,
     onTertiary = Color.White,
-    onBackground = Color.White,
+    onBackground = TextDarkSurface200,
     onSurface = Color.White,
 )
 
@@ -23,11 +23,11 @@ private val LightColorScheme = lightColorScheme(
     secondary = Color(0xFFFDF3D6),
     tertiary = Color(0xFF992D7E),
     background = Color.Black,
-    surface = Color.Black,
+    surface = TextDarkSurface200,
     onPrimary = Color.White,
     onSecondary = Color.Black,
     onTertiary = Color.White,
-    onBackground = Color.White,
+    onBackground = TextDarkSurface200,
     onSurface = Color.White,
 )
 
@@ -36,11 +36,11 @@ fun OnboardingAnimationTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = DarkColorScheme // Always use dark theme for this design
+    val colorScheme = if(darkTheme) DarkColorScheme else LightColorScheme // Always use dark theme for this design
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography(),
+        typography = AppTypography,
         content = content
     )
 }
